@@ -1,0 +1,526 @@
+2021-08-16 09:48:49,328 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('ID', 'MB_STAFFID')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result['ID','MB_STAFFID']
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3455, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: ('ID', 'MB_STAFFID')
+2021-08-16 09:48:49,351 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('ID', 'MB_STAFFID')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result['ID','MB_STAFFID']
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3455, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: ('ID', 'MB_STAFFID')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 09:50:50,535 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('ID', 'MB_STAFFID')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result[twotwod_mms_cbbe_result['ID','MB_STAFFID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3455, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: ('ID', 'MB_STAFFID')
+2021-08-16 09:50:50,545 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('ID', 'MB_STAFFID')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result[twotwod_mms_cbbe_result['ID','MB_STAFFID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3455, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: ('ID', 'MB_STAFFID')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:00:52,090 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('ID', 'COM_ID')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result[twotwod_mms_cbbe_result['ID','COM_ID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3455, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: ('ID', 'COM_ID')
+2021-08-16 10:00:52,104 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas\_libs\index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas\_libs\hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: ('ID', 'COM_ID')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result[twotwod_mms_cbbe_result['ID','COM_ID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3455, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexes\base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: ('ID', 'COM_ID')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:02:46,870 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result[['ID','COM_ID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3461, in __getitem__
+    indexer = self.loc._get_listlike_indexer(key, axis=1)[1]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1377, in _validate_read_indexer
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['COM_ID'] not in index"
+2021-08-16 10:02:46,886 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result[['ID','COM_ID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\frame.py", line 3461, in __getitem__
+    indexer = self.loc._get_listlike_indexer(key, axis=1)[1]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1377, in _validate_read_indexer
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['COM_ID'] not in index"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:06:03,396 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result.loc[1,2,3]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1103, in _getitem_tuple
+    self._has_valid_tuple(tup)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 751, in _has_valid_tuple
+    self._validate_key_length(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 792, in _validate_key_length
+    raise IndexingError("Too many indexers")
+pandas.core.indexing.IndexingError: Too many indexers
+2021-08-16 10:06:03,408 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result.loc[1,2,3]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1103, in _getitem_tuple
+    self._has_valid_tuple(tup)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 751, in _has_valid_tuple
+    self._validate_key_length(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 792, in _validate_key_length
+    raise IndexingError("Too many indexers")
+pandas.core.indexing.IndexingError: Too many indexers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:07:07,867 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result.loc["1","2","3"]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1103, in _getitem_tuple
+    self._has_valid_tuple(tup)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 751, in _has_valid_tuple
+    self._validate_key_length(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 792, in _validate_key_length
+    raise IndexingError("Too many indexers")
+pandas.core.indexing.IndexingError: Too many indexers
+2021-08-16 10:07:07,880 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result.loc["1","2","3"]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1103, in _getitem_tuple
+    self._has_valid_tuple(tup)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 751, in _has_valid_tuple
+    self._validate_key_length(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 792, in _validate_key_length
+    raise IndexingError("Too many indexers")
+pandas.core.indexing.IndexingError: Too many indexers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:08:38,731 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result.loc[:,['COM_ID','MB_STAFFID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1109, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 806, in _getitem_tuple_same_dim
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1153, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1093, in _getitem_iterable
+    keyarr, indexer = self._get_listlike_indexer(key, axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1374, in _validate_read_indexer
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['COM_ID', 'MB_STAFFID'], dtype='object')] are in the [columns]"
+2021-08-16 10:08:38,743 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 184, in set_termb
+    result = twotwod_mms_cbbe_result.loc[:,['COM_ID','MB_STAFFID']]
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 925, in __getitem__
+    return self._getitem_tuple(key)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1109, in _getitem_tuple
+    return self._getitem_tuple_same_dim(tup)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 806, in _getitem_tuple_same_dim
+    retval = getattr(retval, self.name)._getitem_axis(key, axis=i)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1153, in _getitem_axis
+    return self._getitem_iterable(key, axis=axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1093, in _getitem_iterable
+    keyarr, indexer = self._get_listlike_indexer(key, axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1314, in _get_listlike_indexer
+    self._validate_read_indexer(keyarr, indexer, axis)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\indexing.py", line 1374, in _validate_read_indexer
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['COM_ID', 'MB_STAFFID'], dtype='object')] are in the [columns]"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 509, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 202, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:32:34,121 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('MB_POLICY_x'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+2021-08-16 10:32:34,129 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('MB_POLICY_x'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 513, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 206, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:38:31,964 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('MB_POLICY_x'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+2021-08-16 10:38:31,971 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('MB_POLICY_x'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 513, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 206, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:38:59,948 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('POLICY_NO'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+2021-08-16 10:38:59,952 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('POLICY_NO'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 513, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 206, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:39:26,979 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 197, in set_termb
+    df_temp1 = pd.merge(df_a,df_b, how = 'outer', on='df_temp')
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\reshape\merge.py", line 107, in merge
+    op = _MergeOperation(
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\reshape\merge.py", line 700, in __init__
+    ) = self._get_merge_keys()
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\reshape\merge.py", line 1092, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\generic.py", line 1776, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'df_temp'
+2021-08-16 10:39:26,991 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 197, in set_termb
+    df_temp1 = pd.merge(df_a,df_b, how = 'outer', on='df_temp')
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\reshape\merge.py", line 107, in merge
+    op = _MergeOperation(
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\reshape\merge.py", line 700, in __init__
+    ) = self._get_merge_keys()
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\reshape\merge.py", line 1092, in _get_merge_keys
+    right_keys.append(right._get_label_or_level_values(rk))
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\generic.py", line 1776, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'df_temp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 513, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 206, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:42:04,424 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('POLICY_NO'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+2021-08-16 10:42:10,074 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['POLICY_NO'].drop_duplicates().rename('POLICY_NO'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 513, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 206, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 10:44:08,970 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['NW_CO_CDE_x'].drop_duplicates().rename('NW_CO_CDE_x'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+2021-08-16 10:44:11,139 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 191, in set_termb
+    self.append_err_df(result['NW_CO_CDE_x'].drop_duplicates().rename('NW_CO_CDE_x'),"select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)")
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 42, in append_err_df
+    self.err_df = self.err_df.append(df,ignore_index=True )
+AttributeError: 'qbe' object has no attribute 'err_df'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 513, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 206, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error
+2021-08-16 11:44:35,117 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\ops\array_ops.py", line 302, in na_logical_op
+    result = op(x, y)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\roperator.py", line 56, in ror_
+    return operator.or_(right, left)
+TypeError: unsupported operand type(s) for |: 'str' and 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\ops\array_ops.py", line 316, in na_logical_op
+    result = libops.scalar_binop(x, y, op)
+  File "pandas\_libs\ops.pyx", line 210, in pandas._libs.ops.scalar_binop
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\roperator.py", line 56, in ror_
+    return operator.or_(right, left)
+TypeError: unsupported operand type(s) for |: 'bool' and 'str'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 201, in set_termb
+    if df_b['MB_TER'] == 'N' | df_b['MB_TER'] == ' ':
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\ops\common.py", line 69, in new_method
+    return method(self, other)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\arraylike.py", line 74, in __ror__
+    return self._logical_method(other, roperator.ror_)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\series.py", line 5512, in _logical_method
+    res_values = ops.logical_op(lvalues, rvalues, op)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\ops\array_ops.py", line 392, in logical_op
+    res_values = na_logical_op(lvalues, rvalues, op)
+  File "C:\Users\kenny.wong\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages\pandas\core\ops\array_ops.py", line 325, in na_logical_op
+    raise TypeError(
+TypeError: Cannot perform 'ror_' with a dtyped [object] array and scalar of type [bool]
+2021-08-16 11:52:36,896 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 201, in set_termb
+    twotwod_mms_cbbe_result = df_a.merge(df_b, how='inner', left_on=['POLICY_NO','MBSHIP_NO'], right_on=['MB_POLICY','MB_CERT_NO']).sort_values['MB_POLICY_x','MB_JO_DT_x']
+TypeError: 'method' object is not subscriptable
+2021-08-16 11:52:36,907 dev.qbe ERROR: message
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 201, in set_termb
+    twotwod_mms_cbbe_result = df_a.merge(df_b, how='inner', left_on=['POLICY_NO','MBSHIP_NO'], right_on=['MB_POLICY','MB_CERT_NO']).sort_values['MB_POLICY_x','MB_JO_DT_x']
+TypeError: 'method' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 525, in <module>
+    qbe_local = qbe( sys.argv[1], qbe_output)
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 35, in __init__
+    self.termb = self.set_termb()
+  File "c:\Users\kenny.wong\Desktop\Python_Membe_QBE\QBE_main.py", line 218, in set_termb
+    raise Exception(tag + "termb error")
+Exception: [qbe]termb error

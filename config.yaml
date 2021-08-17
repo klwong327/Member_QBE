@@ -1,0 +1,29 @@
+excel_date_format: '%d/%m/%Y'
+qbe:
+  path:
+    template: 'C:\Users\kenny.wong\Desktop\Python_Membe_QBE\data\template\qbe\log_template.txt'
+    input_data: 'C:\Users\kenny.wong\Desktop\Python_Membe_QBE\data\in\qbe\'
+    output_data: 'C:\Users\kenny.wong\Desktop\Python_Membe_QBE\data\out\qbe\'
+    
+  data:
+    df_expiry: ['EXPIRY_DT']
+    df_com: ['COM_DT']
+    2yr_header: ['NW_CO_CDE','NW_SCH_CDE','MB_NAME','MB_CLASS','MB_JO_DT','MB_TERM_DT','MB_TER','MB_SEX','MB_ID','MB_CERT_NO','MB_STAFFID','MB_BIR_DT','MB_BANK_AC','MB_PLAN','MB_POLICY','MB_INPATNT','MB_REINSUR','MB_DEPT','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','MB_TEL','MB_PRECON1','MB_PRECON2','MB_PRECON3','OCODE','MB_MEDIPAS','MB_OK','POLICY_NO','NAME','MBSHIP_NO','ID','COM_DT','EXPIRY_DT','TRANS_TYPE','FLAG','OLD_TER_DT','DOB','PLAN']
+    actmb_header: ['POLICY_NO','NAME','MBSHIP_NO','ID','COM_DT','EXPIRY_DT','TRANS_TYPE','OLD_TER_DT','DOB','PLAN']
+    diff_header: ['NW_CO_CDE','NW_SCH_CDE','MB_NAME','MB_CLASS','MB_JO_DT','MB_TERM_DT','MB_TER','MB_SEX','MB_ID','MB_CERT_NO','MB_STAFFID','MB_BIR_DT','MB_BANK_AC','MB_PLAN','MB_POLICY','MB_INPATNT','MB_REINSUR','MB_DEPT','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','MB_TEL','MB_PRECON1','MB_PRECON2','MB_PRECON3OCODE','MB_MEDIPAS','MB_OK','POLICY_NO','NAME','MBSHIP_NO','ID','COM_DT','EXPIRY_DT','TRANS_TYPE','FLAG','OLD_TER_DT','DOB','PLAN']
+    mb_cbbe_header: ['MB_CODE','MB_TYPE','MB_NAME','MB_SEX','MB_ID','MB_CERT_NO','MB_STAFFID','MB_BIR_DT','MB_JO_DT','MB_EX_DT','MB_INP_DT','MB_PRT_DT','MB_LOSS_DT','MB_CARD_ST','MB_CARD_BT','MB_CARD_RT','MB_LS_CTR','MB_TER','MB_PRECON1','MB_PRECON2','MB_PRECON3','MB_BANK_AC','NW_CO_CDE','NW_SCH_CDE','NW_MB_CDE','MB_CLASS','MB_PLAN','MB_POLICY','MB_DEPT','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','MB_TEL','LST_UPD','MB_EX_CDE','FIND_ORG','AL_TERM','OCODE','MB_INPATNT','MB_REINSUR','MB_TERM_DT','MB_LSTUPD','MB_CREA_DT','MB_MEDIPAS','MB_EMAIL']
+    member_header: ['NW_CO_CDE','NW_SCH_CDE','MB_NAME','MB_CLASS','MB_JO_DT','MB_TERM_DT','MB_TER','MB_SEX','MB_ID','MB_CERT_NO','MB_STAFFID','MB_BIR_DT','MB_BANK_AC','MB_PLAN','MB_POLICY','MB_INPATNT','MB_REINSUR','MB_DEPT','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','MB_TEL','MB_PRECON1','MB_PRECON2','MB_PRECON3','OCODE','MB_MEDIPAS','MB_EMAIL','MB_OK']
+    mixed_header: ['NW_CO_CDE','NW_SCH_CDE','MB_NAME','MB_CLASS','MB_JO_DT','MB_TERM_DT','MB_TER','MB_SEX','MB_ID','MB_CERT_NO','MB_STAFFID','MB_BIR_DT','MB_BANK_AC','MB_PLAN','MB_POLICY','MB_INPATNT','MB_REINSUR','MB_DEPT','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','MB_TEL','MB_PRECON1','MB_PRECON2','MB_PRECON3','OCODE','MB_MEDIPAS','MB_OK','POLICY_NO','NAME','MBSHIP_NO','ID','COM_DT','EXPIRY_DT','TRANS_TYPE','FLAG','OLD_TER_DT','DOB','PLAN']
+    new_header: ['NW_CO_CDE','NW_SCH_CDE','MB_NAME','MB_CLASS','MB_JO_DT','MB_TERM_DT','MB_TER','MB_SEX','MB_ID','MB_CERT_NO', 'MB_STAFFID','MB_BIR_DT','MB_BANK_AC','MB_PLAN','MB_POLICY','MB_INPATNT','MB_REINSUR','MB_DEPT','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','MB_TEL','MB_PRECON1','MB_PRECON2','MB_PRECON3','OCODE','MB_MEDIPAS','MB_OK','POLICY_NO','NAME','MBSHIP_NO','ID','COM_DT','EXPIRY_DT','TRANS_TYPE','FLAG','OLD_TER_DT','DOB','PLAN']
+    termb_header: ['NW_MB_CDE','MB_JO_DT','MB_TERM_DT','MB_TER','MB_OK']
+    update_header: ['NW_MB_CDE','MB_OK','MB_BIR_DT']
+    upload_cbbe_header: ['SER_TYPE','NW_CO_CDE','NW_SCH_CDE','MB_NAME','MB_F_NAME','MB_L_NAME','MB_GIV_NAM','MB_CLASS','MB_SEX','MB_BIR_DT','MB_POLICY','MB_CERT_NO','MB_STAFFID','ID_TYPE','MB_ID','MB_PLAN','MB_DEPT','MB_TEL','MB_MOBILE','MB_EMAIL','MB_QQ','MB_WECHAT','MB_PAYEE','MB_BANK_AC','MB_JO_DT','MB_TERM_DT','MB_TER','MB_INPATNT','MB_REINSUR','MB_MEDIPAS','MB_REFNO1','MB_REFNO2','MB_COSTCTR','MB_IS_VIP','MB_RESERV1','MB_RESERV2','MB_RESERV3','MB_REMARK1','MB_REMARK2','MB_REMARK3','ADDR_TYPE','MB_ADDR1','MB_ADDR2','MB_ADDR3','MB_ADDR4','DISTRICT','AREA','CITY','PROVINCE','COUNTRY','MB_ADD_XDT','MB_PRECON','PRECON_XDT','MB_OK']
+    
+    
+data:
+  mb_cbbe_header: ['MB_CODE', 'MB_TYPE', 'MB_NAME', 'MB_SEX', 'MB_ID', 'MB_CERT_NO', 'MB_STAFFID', 'MB_BIR_DT', 'MB_JO_DT', 'MB_EX_DT', 'MB_INP_DT', 'MB_PRT_DT', 'MB_LOSS_DT', 'MB_CARD_ST', 'MB_CARD_BT', 'MB_CARD_RT', 'MB_LS_CTR', 'MB_TER', 'MB_PRECON1', 'MB_PRECON2', 'MB_PRECON3', 'MB_BANK_AC', 'NW_CO_CDE', 'NW_SCH_CDE', 'NW_MB_CDE', 'MB_CLASS', 'MB_PLAN', 'MB_POLICY', 'MB_DEPT', 'MB_ADDR1', 'MB_ADDR2', 'MB_ADDR3', 'MB_ADDR4', 'MB_TEL', 'LST_UPD', 'MB_EX_CDE', 'FIND_ORG', 'AL_TERM', 'OCODE', 'MB_INPATNT', 'MB_REINSUR', 'MB_TERM_DT', 'MB_LSTUPD', 'MB_CREA_DT', 'MB_MEDIPAS', 'MB_EMAIL']
+  mb_cbbe_date_cols: ['MB_BIR_DT', 'MB_JO_DT', 'MB_TERM_DT']
+  precon_cbbe_header: ['NW_MB_CDE', 'MB_NAME', 'MB_STAFFID', 'MB_PRECON1', 'EFF_DT', 'EX_DT']
+  precon_date_cols: ['EFF_DT', 'EX_DT']
+  upload_header: [ 'service_type_code','client_company_code','client_scheme_code','member_full_name','member_last_name','member_first_name','member_given_name','member_role','member_sex','member_dob','member_policy','member_cert','member_staffid','id_type_code','member_id','member_plan','member_dept','member_tel','member_mobile','member_email','member_qq','member_wechat','member_payee_name','member_bank_acc_no','member_join_date','member_termination_date','member_status','member_inpatient_grade','member_reinsurance_grade','member_medipass','member_refno1','member_refno2','member_cost_center','member_is_vip','member_reserved1','member_reserved2','member_reserved3','member_remark1','member_remark2','member_remark3','address_type_code','address_1','address_2','address_3','address_4','district','area','city','province','country','member_address_expiry_date','member_precondition_desc','member_precondition_expiry_date','MB_OK']
+  

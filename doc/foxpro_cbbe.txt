@@ -1,0 +1,200 @@
+1. download member data from mms sql to I:\CSD\RSA\Member\YYYY\MM\DD\mms.dbf
+select '' as MB_CODE, '' as MB_TYPE, member_full_name as MB_NAME, member_sex as MB_SEX, member_id as MB_ID, member_cert as MB_CERT_NO, member_staffid as MB_STAFFID, convert(varchar,member_dob, 103) as MB_BIR_DT, convert(varchar,member_join_date, 103) as MB_JO_DT, '' as MB_EX_DT, convert(varchar, a.create_date, 103) as MB_INP_DT, '' as MB_PRT_DT
+, convert(varchar, member_loss_date, 103) as MB_LOSS_DT, '' as MB_CARD_ST, member_batch_no as MB_CARD_BT, '' as MB_CARD_RT, member_loss_count as MB_LS_CTR, member_status as MB_TER, '' as MB_PRECON1,'' as MB_PRECON2, '' as MB_PRECON3
+, member_bank_acc_no as MB_BANK_AC, client_company_code as NW_CO_CDE, client_scheme_code as NW_SCH_CDE, member_code as NW_MB_CDE, member_role as MB_CLASS, member_plan as MB_PLAN, member_policy as MB_POLICY, member_dept as MB_DEPT
+,address_1 as MB_ADDR1, address_2 as MB_ADDR2, address_3 as MB_ADDR3, address_4 as MB_ADDR4, member_tel as MB_TEL, '' as LST_UPD, '' as MB_EX_CDE, '' as FIND_ORG, '' as AL_TERM, '' as OCODE, member_inpatient_grade as MB_INPATNT, member_reinsurance_grade as MB_REINSUR
+, convert(varchar,member_termination_date, 103) as MB_TERM_DT,convert(varchar,a.last_update_date, 103) as MB_LSTUPD, convert(varchar,a.create_date, 103) as MB_CREAT_DT, case when member_medipass=1 then'Y' when member_medipass=0 then 'N' when member_medipass is null then null END  as MB_MEDIPAS, member_email as MB_EMAIL
+from member a inner join member_scheme b on a.member_key = b.member_key
+inner join client_scheme c on b.client_scheme_key = c.client_scheme_key
+left join member_address d on a.member_key = d.member_key
+left join (select member_key, max(effective_date) maxdt from member_address group by member_key) x on x.member_key = d.member_key and d.effective_date = maxdt
+inner join client_company f on f.client_company_key = c.client_company_key
+where client_scheme_code in ('QBE1','QBE2')   and convert(varchar,member_join_date, 112) >='20180101'
+
+
+Save as mms_t.txt
+2. Change to ANSI format and save as mms.txt
+
+3. run fox pro command to convert data from txt to dbf
+set default to 'I:\CSD\QBE\QBE1-QBE2\Member\2020\04\29'
+set date dmy
+set century on
+select 0
+use mb_cbbe alias a
+append from mms.txt type delimi with tab
+select * from a where mb_Ter='N' group by mb_policy, mb_term_dt having count(*) >1 order by mb_crea_dt
+close all
+
+For the data file:
+===================
+Remove the top header and change 3 date fields in date format. Save file as DD.xls as in 5.0/95 version
+====================
+select 0
+use actmb alias a
+append from DD.txt type delimi with tab
+browse
+select trans_type,count(*) from a group by trans_type
+select * from a group by policy_no having count(*)>1  <-- check if any renew+ change maid in the same file
+select * from a where trans_type='CN' and old_ter_dt='?' <-- check if any change maid without old mail term date
+select * from a where ctod(expiry_dt)< ctod(com_dt)    <-- check if any maid's term date is earlier than join date and action <> "CP"
+-------Check if any NP member already exists in MMS----------
+select 0
+use mb_cbbe alias b
+select * from a inner join b on alltrim(a.policy_no)+alltrim(a.mbship_no)+(com_dt) ==alltrim(b.mb_policy)+alltrim(b.mb_cert_no) +dtoc(mb_jo_dt)  order by trans_type, policy_no
+close all
+-------------------------------------------------------------
+use mixed alias a
+append from actmb
+replace all mb_ter with 'N',nw_co_cde with 'QBEI00011718',mb_medipas with 'N', mb_class with 'E',mb_policy with policy_no,mb_name with upper(name),mb_jo_dt with ctod(left(com_Dt,2)+'/'+substr(com_Dt,4,2)+'/'+right(com_Dt,4)),mb_term_dt with ctod(left(expiry_Dt,2)+'/'+substr(expiry_Dt,4,2)+'/'+right(expiry_Dt,4)),mb_bir_dt with ctod(left(dob,2)+'/'+substr(dob,4,2)+'/'+right(dob,4)), mb_dept with expiry_Dt,mb_staffid with id,mb_cert_no with mbship_no, mb_plan with plan
+replace all nw_sch_cde with 'QBE1-003' for plan ='1'
+replace all nw_sch_cde with 'QBE2-003' for plan ='2'
+select * from a where inlist(trans_type,'NP','CN','CV','CB')
+copy to new.dbf type fox2x
+select * from a where trans_type<>'NP'
+copy to diff.dbf type fox2x
+close all
+====================================================================
+[Handle "NP" member and check if there is any 2-yr contract]
+use new alias a
+** check if any 2-yr member**
+select  * from a where mb_term_Dt-mb_jo_dt>365
+copy to 2yr.dbf type fox2x
+update a set mb_term_dt=ctod(left(dtoc(mb_term_dt),6)+alltrim(str(year(mb_term_dt)-1))) where mb_term_Dt-mb_jo_dt>365
+update a set mb_dept=dtoc(mb_term_dt)
+select a
+browse
+close all
+use 2yr alias a
+update a set mb_jo_dt=ctod(left(dtoc(mb_term_dt),6)+alltrim(str(year(mb_term_dt)-1)))+1
+close all
+select 0
+use member alias a
+append from new
+append from 2yr
+select 0
+use mb_cbbe alias b
+select * from a inner join b on alltrim(a.mb_policy)+alltrim(a.mb_cert_no)+dtos(a.mb_jo_Dt)==alltrim(b.mb_policy)+alltrim(b.mb_cert_no)+dtos(b.mb_jo_dt)
+close all
+use upload_cbbe alias a
+append from member
+brow
+replace all ser_type with 'MEO', NW_SCH_CDE with left(NW_SCH_CDE,4),PRECON_XDT with '31/12/2050', MB_IS_VIP with 'N'
+select 0
+use mb_cbbe alias b
+select * from a inner join b on alltrim(a.mb_policy)+alltrim(a.mb_cert_no)+dtos(a.mb_jo_Dt)==alltrim(b.mb_policy)+alltrim(b.mb_cert_no)+dtos(b.mb_jo_dt)
+close all
+====================================================================
+
+For Member Term:
+================
+select 0
+use diff alias a
+select * from a where inlist(trans_type,'CN','CP')
+copy to 22d.dbf type fox2x
+select * from a where inlist(trans_type,'CD','CS','CV','OO','CB')
+copy to 22f.dbf type fox2x
+close all
+select 0
+use 22d alias a
+select 0
+use mb_cbbe alias b
+select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.id)==alltrim(b.mb_staffid)
+select a.mb_name,b.nw_mb_cde,' ' as mb_ok,'Y' as mb_ter,a.com_Dt, a.expiry_dt,b.mb_jo_dt,b.mb_term_dt ,b.mb_ter  from a inner join b on alltrim(a.policy_no)+alltrim(a.mbship_no)==alltrim(b.mb_policy)+alltrim(b.mb_cert_no)
+select b.nw_mb_cde,b.mb_jo_dt as mb_jo_dt, b.mb_term_dt,'Y' as mb_ter,' ' as mb_ok,a.old_ter_dt  as nw_term_dt,expiry_dt,a.mb_policy,b.mb_name as old_name,a.mb_name as new_name  from a inner join b on alltrim(a.policy_no)+alltrim(a.mbship_no)==alltrim(b.mb_policy)+alltrim(b.mb_cert_no) and (b.mb_ter ='N' or b.mb_ter=' ') order by a.mb_policy,a.mb_jo_dt
+copy to term.dbf type fox2x
+close all
+use term alias a
+delete for (nw_term_dt<>'?' and mb_term_dt<ctod(nw_term_dt)) or (nw_term_dt='?' and mb_term_dt<ctod(expiry_dt))
+browse
+pack
+replace mb_term_dt with ctod(nw_term_dt) for nw_term_dt<>'?' and between(ctod(nw_term_dt),mb_jo_dt,mb_term_dt)
+replace mb_term_dt with ctod(expiry_dt) for nw_term_dt='?' and between(ctod(expiry_dt),mb_jo_dt,mb_term_dt)
+replace mb_term_dt with mb_jo_dt for (nw_term_dt<>'?' and mb_jo_dt>ctod(nw_term_dt)) or (nw_term_dt='?' and mb_jo_dt>ctod(expiry_dt))
+modify structure (delete useless fields)
+close all
+----------------
+use term alias a
+select * from a where mb_term_dt < mb_jo_dt
+update a set mb_term_dt = mb_jo_dt where mb_term_dt < mb_jo_dt
+close all
+
+
+Data change:
+=============
+select 0
+use 22f alias a
+select 0
+use mb_cbbe alias b
+select * from a inner join b on a.mb_policy+a.mb_staffid==b.mb_policy+b.mb_staffid where a.mb_jo_dt<=b.mb_term_dt
+copy to 22g.dbf type fox2x
+close all
+use 22g alias a
+select * from a where mb_name_a<>mb_name_b or nw_co_cde_<>nw_co_cde2 or left(nw_sch_cde,4)<>nw_sch_cd2 or mb_class_a<>mb_class_b or mb_jo_dt_a<>mb_jo_dt_b or mb_term_dt<>mb_term_d2 or mb_ter_a<>mb_ter_b or mb_id_a<>mb_id_b or mb_cert_no<>mb_cert_n2 or mb_staffid<>mb_staffi2 or mb_plan_a<>mb_plan_b or mb_policy_<>mb_policy2 or mb_dept_a<>mb_dept_b or mb_tel_a<>mb_tel_b or mb_bir_dt_ <> mb_bir_dt2
+select * from a where mb_name_a<>mb_name_b or nw_co_cde_<>nw_co_cde2 or left(nw_sch_cde,4)<>nw_sch_cd2 or mb_class_a<>mb_class_b or mb_ter_a<>mb_ter_b or mb_id_a<>mb_id_b or mb_cert_no<>mb_cert_n2 or mb_staffid<>mb_staffi2 or mb_plan_a<>mb_plan_b or mb_policy_<>mb_policy2 or mb_tel_a<>mb_tel_b or mb_bir_dt_ <> mb_bir_dt2
+select * from a where mb_name_a<>mb_name_b
+e.g. change name, join date, term date, dept
+select nw_mb_cde,' ' as mb_ok,mb_bir_dt_ as mb_bir_dt from a where mb_bir_dt_ <> mb_bir_dt2
+***** IF Change name "CS" - Only reissue card for the current year if member has 2-yr contract.***********
+select nw_mb_cde, mb_name_a as mb_name, ' ' as mb_ok   from a where mb_name_a<>mb_name_b
+select nw_mb_cde,' ' as mb_ok,mb_jo_dt_a as mb_jo_dt, mb_term_dt as mb_term_Dt,mb_ter_a as mb_ter from a where mb_jo_dt_a<>mb_jo_dt_b and trans_type='CV'
+select b.nw_mb_cde,' ' as mb_ok,'Y' as mb_ter,b.mb_jo_dt_b as mb_jo_dt, a.mb_term_Dt  as mb_term_Dt  from a inner join b on alltrim(a.policy_no)+alltrim(a.mbship_no)==alltrim(b.mb_policy2)+alltrim(b.mb_cert_no) and b.mb_ter_b ='N'
+select nw_mb_cde,' ' as mb_ok,mb_jo_dt_a as mb_jo_dt, expiry_dt as mb_term_Dt,mb_ter_a as mb_ter , expiry_dt as mb_dept from a where mb_term_dt<>mb_term_d2 and trans_type='CV'
+select nw_mb_cde,' ' as mb_ok,mb_jo_dt_a as mb_jo_dt, expiry_dt as mb_term_Dt,mb_ter_a as mb_ter , expiry_dt as mb_dept from a where mb_jo_dt_a<>mb_jo_dt_b and trans_type='CV'
+// change name + mb_staffid
+select nw_mb_cde,' ' as mb_ok,mb_name_a as mb_name , mb_staffid from a where mb_name_a<>mb_name_b
+//change mb_Staffid
+select nw_mb_cde, mb_staffid,' ' as mb_ok from a where mb_staffid <> mb_staffi2
+copy to upd_iss.dbf type fox2x
+***** Change ID (StaffID) "OO" - NO need to re-issue card    ************
+select nw_mb_Cde, ' ' as mb_ok, mb_Staffid from a where mb_staffid<>mb_staffi2
+***** Shorten effective period from 2 yrs to 1 yr   ************************
+select nw_mb_cde,' ' as mb_ok,mb_jo_dt_a as mb_jo_dt, mb_jo_dt_a as mb_term_Dt,'Y' as mb_ter from a where mb_jo_dt_a<>mb_jo_dt_b and trans_type='CV'
+copy to update.dbf type fox2x
+***** Change membership ID (mb_cert_no) Need to re-issue card ************
+select nw_mb_Cde, ' ' as mb_ok, mb_cert_no from a where mb_cert_no<> mb_cert_n2
+copy to upd_iss.dbf type fox2x
+
+close all
+
+Reinstate member
+------------------
+select 0
+use mixed alias a
+select 0
+use mb_cbbe alias b
+select a.*,b.mb_name,b.mb_jo_dt,b.mb_term_dt,b.nw_sch_cde,b.nw_mb_cde,b.mb_ter,b.mb_crea_dt,b.mb_lstupd from a left outer join b on alltrim(a.policy_no)==alltrim(b.mb_policy) where b.mb_ter='Y' order by b.mb_policy,b.mb_jo_dt
+copy to 15g.dbf type fox2x
+close all
+use 15g alias a
+brow
+pack // delete non reinstate members
+select nw_mb_cde,' ' as mb_ok,mb_jo_dt_a as mb_jo_dt,mb_term_dt,mb_ter_a as mb_ter  from a where mb_term_dt<>mb_term_d2
+copy to ris.dbf type fox2x
+close all
+
+//for more than 1-yr reinstate member
+use 25e alias a
+select  * from a where mb_term_Dt-mb_jo_dt_a>365
+copy to ris_2yr.dbf type fox2x
+select a
+update a set mb_term_dt=ctod(left(dtoc(mb_term_dt),6)+alltrim(str(year(mb_term_dt)-1))) where mb_term_Dt-mb_jo_dt_a>365
+update a set mb_dept=dtoc(mb_term_dt)
+close all
+use ris_2yr alias a
+update a set mb_jo_dt_a=ctod(left(dtoc(mb_term_dt),6)+alltrim(str(year(mb_term_dt)-1)))+1
+close all
+use 25e alias a
+-- delete the records which are not the 1st year of reinstate member
+modify stru   // change the mb_jo_dt_a to mb_jo_dt
+pack
+close all
+use ris_2yr alias a
+-- delete the records which are not the 2nd year of reinstate member
+pack
+modify stru   // change the mb_jo_dt_a to mb_jo_dt
+close all
+use ris alias a
+append from 25e
+append from ris_2yr
+append "Y" for mb_Ter
+close all
