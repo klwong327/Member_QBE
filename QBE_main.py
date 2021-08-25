@@ -239,33 +239,6 @@ class qbe:
     return termb
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   def validate(self):
     #check duplicate
     check_mms_cbbe_duplicate = self.check_mms_cbbe_duplicate()
@@ -413,6 +386,80 @@ class qbe:
 
     #pec
 
+
+  def output_update(self):
+    #use 22f alias a
+    df_a = self.twotwof
+    #use mb_cbbe alias b
+    df_b = self.mms_cbbe
+    #select * from a inner join b on a.mb_policy+a.mb_staffid==b.mb_policy+b.mb_staffid where a.mb_jo_dt<=b.mb_term_dt
+    df_b['MB_TERM_DT'] = pd.to_datetime(df_b['MB_TERM_DT'], errors='coerce').dt.strftime('%d/%m/%Y')
+    twotwof_mms_cbbe_result = df_a.merge(df_b, how='inner', left_on=['MB_POLICY','MB_STAFFID'], right_on=['MB_POLICY','MB_STAFFID'])
+    twotwof_mms_cbbe_result_final = pd.DataFrame(columns=twotwof_mms_cbbe_result.columns, index=twotwof_mms_cbbe_result.index)
+    twotwof_mms_cbbe_result_final = twotwof_mms_cbbe_result_final[0:0]
+    k = 0
+    for j in range (len(twotwof_mms_cbbe_result)):
+      d1, m1, y1 = [int(x) for x in twotwof_mms_cbbe_result['MB_JO_DT_x'][j].split('/')]
+      d2, m2, y2 = [int(x) for x in twotwof_mms_cbbe_result['MB_TERM_DT_y'][j].split('/')]
+      b1 = date(y1, m1, d1)
+      b2 = date(y2, m2, d2)
+      if (b1 <= b2):
+        twotwof_mms_cbbe_result_final.loc[k] = twotwof_mms_cbbe_result.iloc[j]
+        k += 1
+      else:continue
+    #copy to 22g.dbf type fox2x
+    twotwog = twotwof_mms_cbbe_result_final
+    self.twotwog = twotwog
+    #use 22g alias a
+    df_a = self.twotwog
+    #select * from a where mb_name_a<>mb_name_b or nw_co_cde_<>nw_co_cde2 or left(nw_sch_cde,4)<>nw_sch_cd2 
+    # or mb_class_a<>mb_class_b or mb_jo_dt_a<>mb_jo_dt_b or mb_term_dt<>mb_term_d2 or mb_ter_a<>mb_ter_b 
+    # or mb_id_a<>mb_id_b or mb_cert_no<>mb_cert_n2 or mb_staffid<>mb_staffi2 or mb_plan_a<>mb_plan_b 
+    # or mb_policy_<>mb_policy2 or mb_dept_a<>mb_dept_b or mb_tel_a<>mb_tel_b or mb_bir_dt_ <> mb_bir_dt2
+    twotwog_check_1 = df_a[(df_a['MB_NAME_x'] != df_a['MB_NAME_y']) | 
+                            (df_a['NW_CO_CDE_x'] != df_a['NW_CO_CDE_y']) | 
+                            (df_a['NW_SCH_CDE_x'].str[:4] != df_a['NW_SCH_CDE_y']) |
+                            (df_a['MB_CLASS_x'] != df_a['MB_CLASS_y']) |
+                            (df_a['MB_JO_DT_x'] != df_a['MB_JO_DT_y']) |
+                            (df_a['MB_TERM_DT_x'] != df_a['MB_TERM_DT_y']) |
+                            (df_a['MB_TER_x'] != df_a['MB_TER_y']) |
+                            (df_a['MB_ID_x'] != df_a['MB_ID_y']) |
+                            (df_a['MB_CERT_NO_x'] != df_a['MB_CERT_NO_y']) |
+                            (df_a['MB_STAFFID'] != df_a['ID']) |
+                            (df_a['MB_PLAN_x'] != df_a['MB_PLAN_y']) |
+                            (df_a['MB_POLICY'] != df_a['POLICY_NO']) |
+                            (df_a['MB_DEPT_x'] != df_a['MB_DEPT_y']) |
+                            (df_a['MB_TEL_x'] != df_a['MB_TEL_y']) |
+                            (df_a['MB_BIR_DT_x'] != df_a['MB_BIR_DT_y'])]
+    if len(twotwog_check_1.index) > 0:
+      qbe_output.add_msg('err: update: twotwog_check_1 failed')
+      self.append_err_df(df_a['MB_NAME_x'],"update: twotwog_check_1 failed")
+    #select * from a where mb_name_a<>mb_name_b or nw_co_cde_<>nw_co_cde2 or left(nw_sch_cde,4)<>nw_sch_cd2 
+    # or mb_class_a<>mb_class_b or mb_ter_a<>mb_ter_b or mb_id_a<>mb_id_b or mb_cert_no<>mb_cert_n2
+    # or mb_staffid<>mb_staffi2 or mb_plan_a<>mb_plan_b or mb_policy_<>mb_policy2 or mb_tel_a<>mb_tel_b or mb_bir_dt_ <> mb_bir_dt2
+    twotwog_check_2 = df_a[(df_a['MB_NAME_x'] != df_a['MB_NAME_y']) | 
+                            (df_a['NW_CO_CDE_x'] != df_a['NW_CO_CDE_y']) | 
+                            (df_a['NW_SCH_CDE_x'].str[:4] != df_a['NW_SCH_CDE_y']) |
+                            (df_a['MB_CLASS_x'] != df_a['MB_CLASS_y']) |
+                            (df_a['MB_TER_x'] != df_a['MB_TER_y']) |
+                            (df_a['MB_ID_x'] != df_a['MB_ID_y']) |
+                            (df_a['MB_CERT_NO_x'] != df_a['MB_CERT_NO_y']) |
+                            (df_a['MB_STAFFID'] != df_a['ID']) |
+                            (df_a['MB_PLAN_x'] != df_a['MB_PLAN_y']) |
+                            (df_a['MB_POLICY'] != df_a['POLICY_NO']) |
+                            (df_a['MB_TEL_x'] != df_a['MB_TEL_y']) |
+                            (df_a['MB_BIR_DT_x'] != df_a['MB_BIR_DT_y'])]
+    if len(twotwog_check_2.index) > 0:
+      qbe_output.add_msg('err: update: twotwog_check_2 failed')
+      self.append_err_df(df_a['MB_NAME_x'],"update: twotwog_check_2 failed")
+    #select * from a where mb_name_a<>mb_name_b
+    twotwog_check_3 = df_a[(df_a['MB_NAME_x'] != df_a['MB_NAME_y'])]
+    if len(twotwog_check_3.index) > 0:
+      qbe_output.add_msg('err: update: twotwog_check_3 failed')
+      self.append_err_df(df_a['MB_NAME_x'],"update: twotwog_check_3 failed")
+
+    print ("test")
+
   def output_upload(self):
     #new is from set_mixed()
     new = self.new
@@ -489,45 +536,22 @@ class qbe:
       self.append_err_df(upload_cbbe_mms_cbbe_join_result['MB_POLICY'].drop_duplicates().rename('MB_POLICY'),"select * from a inner join b on alltrim(a.mb_policy)+alltrim(a.mb_cert_no)+dtos(a.mb_jo_Dt)==alltrim(b.mb_policy)+alltrim(b.mb_cert_no)+dtos(b.mb_jo_dt)")
      
 
-
-
   def output_err_file(self):
     if len( self.err_df.index)>0:
       qbe_output.add_msg("err: validation failure and output err_df.xslx'")
       self.err_df.to_excel(self.data_output_path+"err_df.xlsx", sheet_name = 'Sheet1', index=False, engine='xlsxwriter')
    
 
-
-
   def output_file(self):
     print("add function for output files")
     self.output_upload()
+    self.output_update()
 
       
-
-
-
-
-
-
-
-
-
   def set_temp_df(self):
     print("optional: temp df during programming")
      
  
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
   pd.set_option('display.max_columns', None)
